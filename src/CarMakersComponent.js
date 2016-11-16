@@ -5,14 +5,12 @@ class CarMakers extends React.Component {
 	constructor(props) {
     	super(props);
 	};
-	state = {};
-	handleClick() {};
 	render() {
 		let {title, handler} = this.props;
     	return (
-    	<rmd.Button ripple onClick={handler}> 
-			{ title }
-    	</rmd.Button>
+			<rmd.Button ripple onClick={handler}> 
+				{ title }
+			</rmd.Button>
     	);
 	}
 };

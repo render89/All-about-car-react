@@ -33,7 +33,7 @@ class App extends React.Component {
 			<div>
 				<div>
 					<rmd.Layout fixedHeader>
-						<rmd.Header title={<span><span style={{ color: '#ddd' }}>All about</span><strong> Car</strong></span>}>
+						<rmd.Header title={<span><span style={{ color: '#ddd' }}>All about</span><strong> Cars</strong></span>}>
 							<rmd.Navigation>
 									{countries.map(country =>
 										(
