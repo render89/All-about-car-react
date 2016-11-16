@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import CarMakers from './CarMakersComponent';
 import Country from './CountryComponent';
 import * as rmd from 'react-mdl';
@@ -7,8 +6,6 @@ import * as rmd from 'react-mdl';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
-		this.menuHandleClick = this.menuHandleClick.bind(this);
 	};
 	state = {
 		active_country: '',
@@ -31,37 +28,34 @@ class App extends React.Component {
 		let activeCountryObject = countries.filter(maker => maker.name === activeCountry)[0];
 		let activeCountryMakers = activeCountryObject ? activeCountryObject.makers : [];
 		let activeCarMaker = active_maker;
-		let activeMakers = activeCarMaker ? info[activeCarMaker] : [];
+		let makerInfo = activeCarMaker ? info[activeCarMaker] : {};
 		return (
 			<div>
-				<div style={{height: '300px', position: 'relative'}}>
+				<div>
 					<rmd.Layout fixedHeader>
 						<rmd.Header title={<span><span style={{ color: '#ddd' }}>All about</span><strong> Car</strong></span>}>
 							<rmd.Navigation>
 									{countries.map(country =>
 										(
-											<Country handler={this.handleClick.bind(this, country.name)} title={country.name} />
+											<Country handler={this.handleClick.bind(this, country.name)} title={country.name} key={country.name} />
 										)
 									)}
 							</rmd.Navigation>	
 						</rmd.Header>
 						<rmd.Drawer title="Menu">
 							<rmd.Navigation>
-									{activeCountryMakers.map(active =>
+									{activeCountryMakers.map(maker =>
 			   							(
-											<CarMakers handler={this.menuHandleClick.bind(this, active)} title={active} />
+											<CarMakers handler={this.menuHandleClick.bind(this, maker)} title={maker} key={maker} />
 										)
 									)}
 							</rmd.Navigation>
 						</rmd.Drawer>
 						<rmd.Content style={{margin: '10px'}}>
-								{activeMakers.map(active =>
-									(
-										<div>
-											{active}
-										</div>
-									)
-								)}
+								<div>
+									<img src={makerInfo.imgUrl} />
+									<div>{makerInfo.text}</div>
+								</div>
 						</rmd.Content>
 					</rmd.Layout>
 				</div>

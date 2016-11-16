@@ -4,7 +4,6 @@ import * as rmd from 'react-mdl';
 class CarMakers extends React.Component {
 	constructor(props) {
     	super(props);
-    	this.handleClick = this.handleClick.bind(this);
 	};
 	state = {};
 	handleClick() {};
