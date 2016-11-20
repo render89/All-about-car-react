@@ -6,10 +6,10 @@ import * as rmd from 'react-mdl';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-	};
-	state = {
-		active_country: '',
-		active_maker: ''
+		this.state = {
+			active_country: '',
+			active_maker: ''
+		}
 	};
 	handleClick(name) {
 		this.setState({
